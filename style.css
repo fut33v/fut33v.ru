@@ -1,0 +1,8 @@
+.weight {
+  position: fixed; /* or absolute */
+  top: 50%;
+  left: 50%;
+  font-size: 30vw;
+  transform: translate(-50%, -50%);
+  font-family: helvetica;
+}

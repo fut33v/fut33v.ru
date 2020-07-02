@@ -1,5 +1,4 @@
-
 function reloadPage() {
     document.location.reload(true);
 }
-setTimeout(reloadPage, 1000);
+setTimeout(reloadPage, 60*1000);

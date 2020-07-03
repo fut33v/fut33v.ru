@@ -1,0 +1,4 @@
+DirectoryIndex index index.html
+<Files .env>
+deny from all
+</Files>

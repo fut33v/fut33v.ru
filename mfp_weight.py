@@ -31,11 +31,22 @@ html_page = """
 
     <body>
         <div class="weight">
-            {weight}
+            <span class="start">
+                {start}
+            </span>
+            <span class="current">
+                {weight}
+            </span>
+            <span class="goal">
+                {goal}
+            </span>
         </div>
     </body>
 </html>
 """
+
+START = 97.0
+GOAL = 75.0
 
 with session() as c:
     c.post(login_url, data=payload)
@@ -45,7 +56,7 @@ with session() as c:
     weight = weight_with_kg.split(' ')[0]
     weight = float(weight.replace(',', '.'))
     print(weight)
-    html_page = html_page.format(weight=weight)
+    html_page = html_page.format(weight=weight, start=START, goal=GOAL)
     open(OUTPUT_HTML_FILE, 'w').write(html_page)
 
 

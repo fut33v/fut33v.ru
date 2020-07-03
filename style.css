@@ -1,12 +1,23 @@
 .weight {
-  position: fixed; /* or absolute */
-  top: 50%;
-  left: 50%;
-  font-size: 30vw;
-  transform: translate(-50%, -50%);
   font-family: helvetica;
+  margin: auto;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-
+.current {
+  font-size: 20vw;
+  text-align: center;
+}
+.goal {
+  font-size: 15vw;
+  text-align: center;
+}
+.start {
+  font-size: 15vw;
+  text-align: center;
+}
 body {
     background: black;
     color: white;

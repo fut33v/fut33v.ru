@@ -1,24 +1,29 @@
-.weight {
-  font-family: helvetica;
-  margin: auto;
-  width: fit-content;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 .current {
-  font-size: 20vw;
-  text-align: center;
+  font-size: 10vw;
 }
 .goal {
-  font-size: 15vw;
-  text-align: center;
+  font-size: 9vw;
 }
 .start {
-  font-size: 15vw;
-  text-align: center;
+  font-size: 9vw;
 }
 body {
     background: black;
     color: white;
+}
+.container {
+  height: 768px;
+  position: relative;
+}
+.center {
+  font-family: helvetica;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.text-center {
+    text-align: center;
 }

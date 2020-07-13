@@ -23,7 +23,7 @@ html_page = """
 <head>
     <meta charset="UTF-8">
     <title>
-        95.6
+        {weight}
     </title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="script.js"></script>
@@ -38,12 +38,17 @@ html_page = """
         </div>
         <div class="text-center">
             <span class="current">
-                <b>{weight}</b> <span style="color: {color};">({diff:.1f})</span>
+                <b>{weight}</b> <span style="color: red;">({diff:.1f})</span>
             </span>
         </div>
         <div class="text-center">
             <span class="goal">
                 {goal}
+            </span>
+        </div>
+        <div class="text-center">
+            <span id="clock">
+                <span class="hour">hh</span>:<span class="min">mm</span>
             </span>
         </div>
     </div>
@@ -54,7 +59,6 @@ html_page = """
 
 START = 97.0
 GOAL = 75.0
-
 
 
 def get_weight_float(with_kg):

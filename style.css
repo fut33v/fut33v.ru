@@ -7,6 +7,10 @@
 .start {
   font-size: 9vw;
 }
+#clock {
+  font-size: 10vw;
+  color: yellow;
+}
 body {
     background: black;
     color: white;

@@ -38,7 +38,7 @@ html_page = """
         </div>
         <div class="text-center">
             <span class="current">
-                <b>{weight}</b> <span style="color: red;">({diff:.1f})</span>
+                <b>{weight}</b> <span style="color: {color};">({diff:.1f})</span>
             </span>
         </div>
         <div class="text-center">

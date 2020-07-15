@@ -40,7 +40,7 @@ html_page = """<!DOCTYPE html>
         </div>
         <div class="text-center">
             <span class="current">
-                <b>{goal}</b> <span style="color: {color};">({diff:.1f})</span>
+                <b>{weight}</b> <span style="color: {color};">({diff:.1f})</span>
             </span>
         </div>
         <div class="text-center">

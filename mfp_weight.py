@@ -2,6 +2,9 @@ from requests import session
 from bs4 import BeautifulSoup
 import environ
 
+from novgorod_weather import get_temperature
+
+
 env = environ.Env()
 env.read_env()
 
@@ -17,8 +20,7 @@ payload = {
     'password': PASSWORD
 }
 
-html_page = """
-<!DOCTYPE html>
+html_page = """<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -38,7 +40,7 @@ html_page = """
         </div>
         <div class="text-center">
             <span class="current">
-                <b>{weight}</b> <span style="color: {color};">({diff:.1f})</span>
+                <b>{goal}</b> <span style="color: {color};">({diff:.1f})</span>
             </span>
         </div>
         <div class="text-center">
@@ -46,13 +48,24 @@ html_page = """
                 {goal}
             </span>
         </div>
-        <div class="text-center">
-            <span id="clock">
-                <span class="hour">hh</span>:<span class="min">mm</span>
-            </span>
-        </div>
     </div>
+
 </div>
+
+
+<div class="datetime">
+    <span id="date">
+        <span class="day">dd</span>.<span class="month">mm</span>.<span class="year">yyyy</span>
+    </span>
+    <span id="clock">
+        <span class="hour">hh</span>:<span class="min">mm</span>
+    </span>
+</div>
+
+<div class="temperature">
+    <span>{temperature} °C</span>
+</div>
+
 </body>
 </html>
 """
@@ -93,8 +106,10 @@ with session() as c:
     else:
         color = "red"
 
+    temperature = get_temperature()
+
     html_page = html_page.format(
-        weight=current_weight_kg, start=START, goal=GOAL, color=color, diff=diff)
+        weight=current_weight_kg, start=START, goal=GOAL, color=color, diff=diff, temperature=temperature)
     open(OUTPUT_HTML_FILE, 'w').write(html_page)
 
 

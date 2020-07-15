@@ -8,19 +8,32 @@
   font-size: 9vw;
 }
 #clock {
-  font-size: 10vw;
-  color: yellow;
+}
+.datetime {
+    position: absolute;
+    top: 88%;
+    right: 2%;
+    font-size: 8vw;
+    color: yellow;
+}
+.temperature {
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    font-size: 8vw;
+    color: yellow;
 }
 body {
+    font-family: helvetica;
     background: black;
     color: white;
+    overflow: hidden;
 }
 .container {
   height: 1024px;
   position: relative;
 }
 .center {
-  font-family: helvetica;
   margin: 0;
   position: absolute;
   top: 50%;

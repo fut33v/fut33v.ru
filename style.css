@@ -11,17 +11,19 @@
 }
 .datetime {
     position: absolute;
-    top: 88%;
+    bottom: 0;
     right: 2%;
     font-size: 8vw;
     color: yellow;
+    text-shadow: 0 0 10px rgba(255,255,0,0.8);
 }
 .temperature {
     position: absolute;
-    top: 2%;
+    top: 0;
     left: 2%;
     font-size: 8vw;
     color: yellow;
+    text-shadow: 0 0 10px rgba(255,255,0,0.8);
 }
 body {
     font-family: helvetica;

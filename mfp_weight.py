@@ -35,17 +35,17 @@ html_page = """<!DOCTYPE html>
     <div class="center">
         <div class="text-center">
             <span class="start">
-                {start}
+                {start} <span style="color: {full_color};">({full_diff:.1f})</span>
             </span>
         </div>
         <div class="text-center">
             <span class="current">
-                <b>{weight}</b> <span style="color: {color};">({diff:.1f})</span>
+                <b>{weight}</b> 
             </span>
         </div>
         <div class="text-center">
             <span class="goal">
-                {goal}
+                {goal} <span style="color: {color};">({diff:.1f})</span>
             </span>
         </div>
     </div>
@@ -100,16 +100,25 @@ with session() as c:
 
     print(prev_weight_kg, current_weight_kg)
 
-    diff = current_weight_kg-prev_weight_kg
+    diff = current_weight_kg-GOAL
     if diff < 0:
         color = "green"
     else:
         color = "red"
 
+    full_diff = current_weight_kg-START
+    if full_diff < 0:
+        full_color = "green"
+    else:
+        full_color = "red"
+
     temperature = get_temperature()
 
     html_page = html_page.format(
-        weight=current_weight_kg, start=START, goal=GOAL, color=color, diff=diff, temperature=temperature)
+        weight=current_weight_kg, start=START, goal=GOAL,
+        diff=diff, color=color,
+        full_color=full_color, full_diff=full_diff,
+        temperature=temperature)
     open(OUTPUT_HTML_FILE, 'w').write(html_page)
 
 

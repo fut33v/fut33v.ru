@@ -2,8 +2,6 @@ from requests import session
 from bs4 import BeautifulSoup
 import environ
 
-from novgorod_weather import get_temperature
-
 
 env = environ.Env()
 env.read_env()
@@ -40,7 +38,7 @@ html_page = """<!DOCTYPE html>
         </div>
         <div class="text-center">
             <span class="current">
-                <b>{weight}</b> 
+                <b>{weight}</b>
             </span>
         </div>
         <div class="text-center">
@@ -50,20 +48,6 @@ html_page = """<!DOCTYPE html>
         </div>
     </div>
 
-</div>
-
-
-<div class="datetime">
-    <span id="date">
-        <span class="day">dd</span>.<span class="month">mm</span>.<span class="year">yyyy</span>
-    </span>
-    <span id="clock">
-        <span class="hour">hh</span>:<span class="min">mm</span>
-    </span>
-</div>
-
-<div class="temperature">
-    <span>{temperature} °C</span>
 </div>
 
 </body>
@@ -112,13 +96,10 @@ with session() as c:
     else:
         full_color = "red"
 
-    temperature = get_temperature()
-
     html_page = html_page.format(
         weight=current_weight_kg, start=START, goal=GOAL,
         diff=diff, color=color,
-        full_color=full_color, full_diff=full_diff,
-        temperature=temperature)
+        full_color=full_color, full_diff=full_diff)
     open(OUTPUT_HTML_FILE, 'w').write(html_page)
 
 
